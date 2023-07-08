@@ -19,11 +19,10 @@
       <div class="player">
         <p>Player:</p>
         <img id="rspPlayerIMG" src="/media/rsp.png" alt="" />
-      </div>
-      <div class="computer">
+    </div>
+    <div class="computer">
         <p>Computer:</p>
-        <!-- <img src="/media/rsp.png" alt=""> -->
-        <img id="rspComputerIMG" src="/media/paper.png" alt="" />
+        <img id="rspComputerIMG" src="/media/rsp.png" alt="" />
       </div>
     </main>
     <div>
@@ -41,135 +40,96 @@
     </div>
 
     <script>
+      // Rock takes (>) Scissors
+      // Scissors takes (>) Paper
+      // Paper takes (>) Rock
+
+      let player = ''
+        let playerWINS = 0
+        let computerWINS = 0
+        let totalGamesPlayed = 0
+        let ties = 0
+
+      // Binary Rules of the game
+      let rsp = {
+        'rock': 0,
+        'scissors': 1,
+        'paper': 2,
+      };
+
+
       // Computer Playing
       let ComputerChoice = () => {
         //   Making the game binary
-        let chosedNumber = Math.floor(Math.random() * 3);
-        let rules = {
-          0: "rock",
-          1: "scissors",
-          2: "paper",
-        };
+        let choosedNumber = Math.floor(Math.random() * 3);
+        let choosedItem = ['rock', 'scissors', 'paper']
+
         document.getElementById("rspComputerIMG").src =
-          "./media/" + rules[chosedNumber] + ".png";
-        return rules[chosedNumber];
+          "./media/" + choosedItem[choosedNumber] + ".png";
+        return choosedItem[choosedNumber];
       };
-      console.log(ComputerChoice());
+
+      const Play = () => {
+    //   Judging to win lose or a tie
+    // Rock:
+    if (player == 'rock' && ComputerChoice() == 'rock') {
+        console.log("TIE!")
+    }
+    else if (player == 'rock' && ComputerChoice() == 'scissors') {
+        console.log("Winner: Player")
+    }
+    else if (player == 'rock' && ComputerChoice() == 'paper') {
+        console.log("Winner: Computer")
+    }
+
+    // Scissors
+    else if (player == 'scissors' && ComputerChoice() == 'rock') {
+        console.log("Winner: Computer")
+    }
+    else if (player == 'scissors' && ComputerChoice() == 'scissors') {
+        console.log("TIE!")
+    }
+    else if (player == 'scissors' && ComputerChoice() == 'paper') {
+        console.log("Winner: Player")
+    }
+
+
+
+    else if (player == 'paper' && ComputerChoice() == 'rock') {
+        console.log("Winner: Player")
+    }
+    else if (player == 'paper' && ComputerChoice() == 'scissors') {
+        console.log("Winner: Computer")
+    }
+    else if (player == 'paper' && ComputerChoice() == 'paper') {
+        console.log("TIE!")
+    }
+      }
+
       // Player on Click Change Picture
       let rock = document
         .getElementById("rock")
         .addEventListener("click", () => {
           document.getElementById("rspPlayerIMG").src = "/media/rock.png";
+          player = 'rock'
+          Play()
         });
-      let scissors = document
+        let scissors = document
         .getElementById("scissors")
         .addEventListener("click", () => {
-          document.getElementById("rspPlayerIMG").src = "/media/scissors.png";
+            document.getElementById("rspPlayerIMG").src = "/media/scissors.png";
+            player = 'scissors'
+            Play()
         });
-      let paper = document
+        let paper = document
         .getElementById("paper")
         .addEventListener("click", () => {
-          document.getElementById("rspPlayerIMG").src = "/media/paper.png";
+            document.getElementById("rspPlayerIMG").src = "/media/paper.png";
+            player = 'paper'
+            Play()
         });
 
-      //   // Rock takes Scissors
-      //   // Scissors takes Paper
-      //   // Paper Takes Rock
 
-      // let playerChoice = ''
-      // let winner = ''
-      // let tie = false
-      // let lost = ''
-
-      //   //   Making the game binary
-      //   let rules = {
-      //     rock: 0,
-      //     scissors: 1,
-      //     paper: 2,
-      //   };
-
-      //   // Returning a random number between 0 and 2 each time the function get called
-      //   let computerChoice = () => {
-      //     const choices = ["rock", "paper", "scissors"];
-      //     return Math.floor(Math.random() * 3);
-      //   };
-
-      //   // If the button Rock gets clicked the computerChoice function get's called and it returns a number
-      //   //  between 0 and 2 and then uses the rules to decide if the match is a win, lost or tie
-      //   let rock = document.getElementById("rock");
-      //   rock.addEventListener("click", () => {
-      //     console.log("Rock Clciked");
-      //     playerChoice += 'rock'
-
-      //     if (rules.rock == 0 && computerChoice() == 1) {
-      //       console.log("Player Wins, Computer Chosed Scissors");
-      //       winner += 'player'
-      //     } else if (rules.rock == 0 && computerChoice() == 2) {
-      //       console.log("Player Loses, Computer Chosed Paper");
-      //       lost += 'player'
-      //     } else {
-      //       console.log("Tie");
-      //       tie = true
-      //     }
-      //   });
-
-      //   // If the button Scissors gets clicked the ComputerChoice function get's called and it returns a number
-      //   //  between 0 and 2 and then uses the rules to decide if the match is a win, lost or tie
-      //   let scissors = document.getElementById("scissors");
-      //   scissors.addEventListener("click", () => {
-      //     console.log("Scissors Clciked");
-      //     playerChoice += 'scissors'
-      //     if (rules.scissors == 1 && computerChoice() == 0) {
-      //       console.log("Player Loses, Computer Chosed Rock");
-      //       lost += 'player'
-      //     } else if (rules.scissors == 1 && computerChoice() == 2) {
-      //       console.log("Player Wins, Computer Chosed Paper");
-      //       winner += 'player'
-      //     } else {
-      //       console.log("Tie");
-      //       tie = true
-      //     }
-      //   });
-
-      //   // If the button Paper gets clicked the ComputerChoice function get's called and it returns a number
-      //   //  between 0 and 2 and then uses the rules to decide if the match is a win, lost or tie
-      //   let paper = document.getElementById("paper");
-      //   paper.addEventListener("click", () => {
-      //     console.log("Paper Clicked");
-      //     playerChoice = 'paper'
-
-      //     if (rules.paper == 2 && computerChoice() == 0) {
-      //       console.log("Player Wins, Computer Chosed Rock");
-      //       winner = 'player'
-      //     } else if (rules.paper == 2 && computerChoice() == 1) {
-      //       console.log("Player Loses, Computer Chosed Scissors");
-      //       lost = 'player'
-      //     } else {
-      //       console.log("Tie");
-      //       tie = true
-      //     }
-      //   });
-
-      //   let Play = () => {
-      //       if (playerChoice == 'rock') {
-      //         let rockIMG = document.getElementById("rspPlayerIMG")
-      //         rockIMG.src="./media/rock.png"
-      //         console.log('Rock IMG', playerChoice)
-      //     }
-      //     if (playerChoice == 'scissors') {
-      //         let scissorsIMG = document.getElementById('rspPlayerIMG')
-      //         scissorsIMG.src="./media/scissors.png"
-      //         console.log('Scissors IMG', playerChoice)
-      //     }
-      //     if (playerChoice == 'paper') {
-      //         let paperIMG = document.getElementById('rspPlayerIMG')
-      //         paperIMG.src="./media/paper.png"
-      //         console.log('Paper IMG', playerChoice)
-      //       }
-      //   }
-      //   Play()
-
-      //   console.log(playerChoice, 'hh')
-    </script>
+     </script>
   </body>
 </html>
