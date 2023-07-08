@@ -1,49 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>RPS Game</title>
-    <link rel="stylesheet" href="Gjorgi_Delev_Protfolio2_RPS_Style.css">
-</head>
-<body>
-<header>
-    <div>
-
-        <button>Rock</button>
-        <button>Scissors</button>
-        <button>Paper</button>
-    </div>
-</header>
-<main>
-    <div class="player">
+    <link rel="stylesheet" href="Gjorgi_Delev_Protfolio2_RPS_Style.css" />
+  </head>
+  <body>
+    <header>
+      <div>
+        <button id="rock">Rock</button>
+        <button id="scissors">Scissors</button>
+        <button id="paper">Paper</button>
+      </div>
+    </header>
+    <main>
+      <div class="player">
         <p>Player:</p>
-        <img src="/media/rsp.png" alt="">
-    </div>
-    <div class="computer">
+        <img id="rspPlayerIMG" src="/media/rsp.png" alt="" />
+      </div>
+      <div class="computer">
         <p>Computer:</p>
         <!-- <img src="/media/rsp.png" alt=""> -->
-        <img src="/media/paper.png" alt="">
-
-
-    </div>
-</main>
-<div>
-
-    <div class="judge">
+        <img id="RSPComputerIMG" src="/media/paper.png" alt="" />
+      </div>
+    </main>
+    <div>
+      <div class="judge" id="winner">
         <p>Win</p>
         <p>Lost</p>
         <p>Tie</p>
-    </div>
-    <div>
+      </div>
+      <div>
         <p>Draws:</p>
         <p>Player Wins:</p>
         <p>Computer Wins:</p>
         <p>Total Score:</p>
+      </div>
     </div>
-</div>
+
+    <script>
+      // Rock takes Scissors
+      // Scissors takes Paper
+      // Paper Takes Rock
 
 
-</body>
+      //   Making the game binary
+      let rules = {
+        rock: 0,
+        scissors: 1,
+        paper: 2,
+      };
+
+      // Returning a random number between 0 and 2 each time the function get called
+      let computerChoice = () => {
+        const choices = ["rock", "paper", "scissors"];
+        return Math.floor(Math.random() * 3);
+      };
+
+      // If the button Rock gets clicked the computerChoice function get's called and it returns a number
+      //  between 0 and 2 and then uses the rules to decide if the match is a win, lost or tie
+      let rock = document.getElementById("rock");
+      rock.addEventListener("click", () => {
+        console.log("Rock Clciked");
+
+        if (rules.rock == 0 && computerChoice() == 1) {
+          console.log("Player Wins, Computer Chosed Scissors");
+        } else if (rules.rock == 0 && computerChoice() == 2) {
+          console.log("Player Loses, Computer Chosed Paper");
+        } else {
+          console.log("Tie");
+        }
+      });
+
+      // If the button Scissors gets clicked the ComputerChoice function get's called and it returns a number
+      //  between 0 and 2 and then uses the rules to decide if the match is a win, lost or tie
+      let scissors = document.getElementById("scissors");
+      scissors.addEventListener("click", () => {
+        console.log("Scissors Clciked");
+        if (rules.scissors == 1 && computerChoice() == 0) {
+          console.log("Player Loses, Computer Chosed Rock");
+        } else if (rules.scissors == 1 && computerChoice() == 2) {
+          console.log("Player Wins, Computer Chosed Paper");
+        } else {
+          console.log("Tie");
+        }
+      });
+
+      // If the button Paper gets clicked the ComputerChoice function get's called and it returns a number
+      //  between 0 and 2 and then uses the rules to decide if the match is a win, lost or tie
+      let paper = document.getElementById("paper");
+      paper.addEventListener("click", () => {
+        console.log("Paper Clicked");
+
+        if (rules.paper == 2 && computerChoice() == 0) {
+          console.log("Player Wins, Computer Chosed Rock");
+        } else if (rules.paper == 2 && computerChoice() == 1) {
+          console.log("Player Loses, Computer Chosed Scissors");
+        } else {
+          console.log("Tie");
+        }
+      });
+    </script>
+  </body>
 </html>
