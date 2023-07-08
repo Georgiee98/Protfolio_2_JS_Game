@@ -19,23 +19,21 @@
       <div class="player">
         <p>Player:</p>
         <img id="rspPlayerIMG" src="/media/rsp.png" alt="" />
-    </div>
-    <div class="computer">
+      </div>
+      <div class="computer">
         <p>Computer:</p>
         <img id="rspComputerIMG" src="/media/rsp.png" alt="" />
       </div>
     </main>
     <div>
       <div class="judge" id="winner">
-        <p>Win</p>
-        <p>Lost</p>
-        <p>Tie</p>
+        <p id="ties">Draws :</p>
+        <p id="playerWINS">Player Wins:</p>
+        <p id="computerWINS">Computer Wins:</p>
+        <p id="totalMatches">Total Score:</p>
       </div>
       <div>
-        <p>Draws:</p>
-        <p>Player Wins:</p>
-        <p>Computer Wins:</p>
-        <p>Total Score:</p>
+
       </div>
     </div>
 
@@ -44,25 +42,25 @@
       // Scissors takes (>) Paper
       // Paper takes (>) Rock
 
-      let player = ''
-        let playerWINS = 0
-        let computerWINS = 0
-        let totalGamesPlayed = 0
-        let ties = 0
+      let player = "";
+      let playerWINS = 0;
+      let computerWINS = 0;
+      let ties = 0;
+      let totalGamesPlayed = 0;
+    //   totalGamesPlayed += playerWINS + computerWINS + ties
 
       // Binary Rules of the game
       let rsp = {
-        'rock': 0,
-        'scissors': 1,
-        'paper': 2,
+        rock: 0,
+        scissors: 1,
+        paper: 2,
       };
-
 
       // Computer Playing
       let ComputerChoice = () => {
         //   Making the game binary
         let choosedNumber = Math.floor(Math.random() * 3);
-        let choosedItem = ['rock', 'scissors', 'paper']
+        let choosedItem = ["rock", "scissors", "paper"];
 
         document.getElementById("rspComputerIMG").src =
           "./media/" + choosedItem[choosedNumber] + ".png";
@@ -70,66 +68,106 @@
       };
 
       const Play = () => {
-    //   Judging to win lose or a tie
-    // Rock:
-    if (player == 'rock' && ComputerChoice() == 'rock') {
-        console.log("TIE!")
-    }
-    else if (player == 'rock' && ComputerChoice() == 'scissors') {
-        console.log("Winner: Player")
-    }
-    else if (player == 'rock' && ComputerChoice() == 'paper') {
-        console.log("Winner: Computer")
-    }
+        //  Getting a win, lose or a tie
+        // Rock:
+        document.getElementById(
+          "totalMatches"
+        ).textContent = `Total Score: ${totalGamesPlayed}`;
 
-    // Scissors
-    else if (player == 'scissors' && ComputerChoice() == 'rock') {
-        console.log("Winner: Computer")
-    }
-    else if (player == 'scissors' && ComputerChoice() == 'scissors') {
-        console.log("TIE!")
-    }
-    else if (player == 'scissors' && ComputerChoice() == 'paper') {
-        console.log("Winner: Player")
-    }
+        totalGamesPlayed++
+        if (player == "rock" && ComputerChoice() == "rock") {
+          console.log(ties);
+          ties += 1;
+          document.getElementById("ties").innerHTML = `Draws: ${ties}`;
+        }
 
 
+        else if (player == "rock" && ComputerChoice() == "scissors") {
+          console.log("Winner: Player");
+          playerWINS += 1;
+          document.getElementById(
+            "playerWINS"
+          ).innerHTML = `Player Wins: ${playerWINS}`;
+        }
 
-    else if (player == 'paper' && ComputerChoice() == 'rock') {
-        console.log("Winner: Player")
-    }
-    else if (player == 'paper' && ComputerChoice() == 'scissors') {
-        console.log("Winner: Computer")
-    }
-    else if (player == 'paper' && ComputerChoice() == 'paper') {
-        console.log("TIE!")
-    }
-      }
+        else if (player == "rock" && ComputerChoice() == "paper") {
+          console.log("Winner: Computer");
+          computerWINS += 1;
+          document.getElementById(
+            "computerWINS"
+          ).innerHTML = `Computer Wins: ${computerWINS}`;
+        }
+
+        // Scissors
+        else if (player == "scissors" && ComputerChoice() == "rock") {
+          console.log("Winner: Computer");
+          computerWINS += 1;
+          document.getElementById(
+            "computerWINS"
+          ).innerHTML = `Computer Wins: ${computerWINS}`;
+        }
+
+        else if (player == "scissors" && ComputerChoice() == "scissors") {
+          console.log("TIE!");
+          ties += 1;
+          document.getElementById("ties").innerHTML = `Draws: ${ties}`;
+        }
+
+        else if (player == "scissors" && ComputerChoice() == "paper") {
+          console.log("Winner: Player");
+          playerWINS += 1;
+          document.getElementById(
+            "playerWINS"
+          ).innerHTML = `Player Wins: ${playerWINS}`;
+        }
+
+        // Paper
+        else if (player == "paper" && ComputerChoice() == "rock") {
+          console.log("Winner: Player");
+          playerWINS += 1;
+          document.getElementById(
+            "playerWINS"
+          ).innerHTML = `Player Wins: ${playerWINS}`;
+        }
+
+        else if (player == "paper" && ComputerChoice() == "scissors") {
+          console.log("Winner: Computer");
+
+          computerWINS += 1;
+          document.getElementById(
+            "computerWINS"
+          ).innerHTML = `Computer Wins: ${computerWINS}`;
+        }
+
+        else if (player == "paper" && ComputerChoice() == "paper") {
+          console.log("TIE!");
+          ties += 1;
+          document.getElementById("ties").innerHTML = `Draws: ${ties}`;
+        }
+      };
 
       // Player on Click Change Picture
       let rock = document
         .getElementById("rock")
         .addEventListener("click", () => {
           document.getElementById("rspPlayerIMG").src = "/media/rock.png";
-          player = 'rock'
-          Play()
+          player = "rock";
+          Play();
         });
-        let scissors = document
+      let scissors = document
         .getElementById("scissors")
         .addEventListener("click", () => {
-            document.getElementById("rspPlayerIMG").src = "/media/scissors.png";
-            player = 'scissors'
-            Play()
+          document.getElementById("rspPlayerIMG").src = "/media/scissors.png";
+          player = "scissors";
+          Play();
         });
-        let paper = document
+      let paper = document
         .getElementById("paper")
         .addEventListener("click", () => {
-            document.getElementById("rspPlayerIMG").src = "/media/paper.png";
-            player = 'paper'
-            Play()
+          document.getElementById("rspPlayerIMG").src = "/media/paper.png";
+          player = "paper";
+          Play();
         });
-
-
-     </script>
+    </script>
   </body>
 </html>
