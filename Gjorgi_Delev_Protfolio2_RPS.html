@@ -10,9 +10,9 @@
   <body>
     <header>
       <div>
-        <button id="rock">Rock</button>
-        <button id="scissors">Scissors</button>
-        <button id="paper">Paper</button>
+        <button onclick="Play()" id="rock">Rock</button>
+        <button onclick="Play()" id="scissors">Scissors</button>
+        <button onclick="Play()" id="paper">Paper</button>
       </div>
     </header>
     <main>
@@ -41,10 +41,15 @@
     </div>
 
     <script>
+
       // Rock takes Scissors
       // Scissors takes Paper
       // Paper Takes Rock
 
+    let playerChoice = ''
+    let winner = ''
+    let tie = false
+    let lost = ''
 
       //   Making the game binary
       let rules = {
@@ -64,13 +69,17 @@
       let rock = document.getElementById("rock");
       rock.addEventListener("click", () => {
         console.log("Rock Clciked");
+        playerChoice += 'rock'
 
         if (rules.rock == 0 && computerChoice() == 1) {
           console.log("Player Wins, Computer Chosed Scissors");
+          winner += 'player'
         } else if (rules.rock == 0 && computerChoice() == 2) {
           console.log("Player Loses, Computer Chosed Paper");
+          lost += 'player'
         } else {
           console.log("Tie");
+          tie = true
         }
       });
 
@@ -79,12 +88,16 @@
       let scissors = document.getElementById("scissors");
       scissors.addEventListener("click", () => {
         console.log("Scissors Clciked");
+        playerChoice += 'scissors'
         if (rules.scissors == 1 && computerChoice() == 0) {
           console.log("Player Loses, Computer Chosed Rock");
+          lost += 'player'
         } else if (rules.scissors == 1 && computerChoice() == 2) {
           console.log("Player Wins, Computer Chosed Paper");
+          winner += 'player'
         } else {
           console.log("Tie");
+          tie = true
         }
       });
 
@@ -93,15 +106,40 @@
       let paper = document.getElementById("paper");
       paper.addEventListener("click", () => {
         console.log("Paper Clicked");
+        playerChoice = 'paper'
 
         if (rules.paper == 2 && computerChoice() == 0) {
           console.log("Player Wins, Computer Chosed Rock");
+          winner = 'player'
         } else if (rules.paper == 2 && computerChoice() == 1) {
           console.log("Player Loses, Computer Chosed Scissors");
+          lost = 'player'
         } else {
           console.log("Tie");
+          tie = true
         }
       });
+
+      let Play = () => {
+          if (playerChoice == 'rock') {
+            let rockIMG = document.getElementById("rspPlayerIMG")
+            rockIMG.src="./media/rock.png"
+            console.log('Rock IMG', playerChoice)
+        }
+        if (playerChoice == 'scissors') {
+            let scissorsIMG = document.getElementById('rspPlayerIMG')
+            scissorsIMG.src="./media/scissors.png"
+            console.log('Scissors IMG', playerChoice)
+        }
+        if (playerChoice == 'paper') {
+            let paperIMG = document.getElementById('rspPlayerIMG')
+            paperIMG.src="./media/paper.png"
+            console.log('Paper IMG', playerChoice)
+          }
+      }
+      Play()
+
+    //   console.log(playerChoice, 'hh')
     </script>
   </body>
 </html>
