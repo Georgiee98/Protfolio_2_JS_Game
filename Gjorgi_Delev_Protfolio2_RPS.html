@@ -10,7 +10,7 @@
   <body>
 
     <header>
-      <div>
+      <div class="header-buttons">
         <button onclick="Rock()" id="rock">Rock</button>
         <button onclick="Scissors()" id="scissors">Scissors</button>
         <button onclick="Paper()" id="paper">Paper</button>
@@ -48,6 +48,7 @@
 
      function move() {
       document.querySelector('main').style.justifyContent = 'center'
+      console.log('center')
      }
 
 
@@ -69,6 +70,7 @@
       let computerChoosenRSP_IMG = imgRSP[computerRSP]
       document.getElementById("rspPlayerIMG").src = "./media/" + 'rock' + ".png";
       document.getElementById("rspComputerIMG").src = "./media/" + computerChoosenRSP_IMG + ".png";
+      document.querySelector('main').style.justifyContent = 'center'
 
       if (computerRSP === 0) {
         ties++
@@ -100,6 +102,7 @@
       let computerChoosenRSP_IMG = imgRSP[computerRSP]
       document.getElementById("rspPlayerIMG").src = "./media/" + 'scissors' + ".png";
       document.getElementById("rspComputerIMG").src = "./media/" + computerChoosenRSP_IMG + ".png";
+      document.querySelector('main').style.justifyContent = 'center'
 
       if (computerRSP === 0) {
         computerWINS++;
@@ -134,6 +137,7 @@
       let computerChoosenRSP_IMG = imgRSP[computerRSP]
       document.getElementById("rspPlayerIMG").src = "./media/" + 'paper' + ".png";
       document.getElementById("rspComputerIMG").src = "./media/" + computerChoosenRSP_IMG + ".png";
+      document.querySelector('main').style.justifyContent = 'center'
 
 
       if (computerRSP === 0) {
