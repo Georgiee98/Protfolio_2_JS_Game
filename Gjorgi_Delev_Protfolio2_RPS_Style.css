@@ -30,7 +30,7 @@ main {
 } */
 .computer {
   display: flex;
-  /* flex-direction: column; */
+  flex-direction: column;
   /* justify-content: center; */
   /* align-items: center; */
 
@@ -47,6 +47,20 @@ main {
 .judge {
     display:flex;
     justify-content: space-around;
-    padding: 50px;
+    padding: 25px;
 }
 
+
+@media screen and (max-width: 425px) {
+  .player img {
+    width: 100px;
+  }
+  .computer img {
+    width: 100px;
+  }
+  .judge {
+    flex-direction: column;
+    align-items: center;
+  }
+
+}
