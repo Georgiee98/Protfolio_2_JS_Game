@@ -9,7 +9,7 @@
 -   Rock beats Scissors
 -   Scissors beats Paper
 -   Paper beats Scissors
-
+<hr>
 
 * Each player can choose between 3 options of Rock, Scissors or Paper
 * When choosed the computer chooses as well
