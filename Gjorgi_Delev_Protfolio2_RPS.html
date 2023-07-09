@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="Gjorgi_Delev_Protfolio2_RPS_Style.css" />
   </head>
   <body>
+
     <header>
       <div>
         <button onclick="Rock()" id="rock">Rock</button>
@@ -27,19 +28,23 @@
     </main>
     <div>
       <div class="judge" id="winner">
-        <p id="ties">Draws :</p>
-        <p id="playerWINS">Player Wins:</p>
-        <p id="computerWINS">Computer Wins:</p>
-        <p id="totalMatches">Total Score:</p>
+        <p id="ties">Draws: 0</p>
+        <p id="playerWINS">Player Wins: 0</p>
+        <p id="computerWINS">Computer Wins: 0</p>
+        <p id="totalMatches">Total Matches: 0</p>
       </div>
-      <div></div>
+      <header><button id="reset" onclick="Reset()">Reset Matches</button></header>
     </div>
   </body>
   <script>
-            document.getElementById("rspPlayerIMG").setAttribute("draggable", false);
-          document
-            .getElementById("rspComputerIMG")
-            .setAttribute("draggable", false);
+
+
+
+
+      document.getElementById("rspPlayerIMG").setAttribute("draggable", false);
+      document
+        .getElementById("rspComputerIMG")
+        .setAttribute("draggable", false);
 
      function move() {
       document.querySelector('main').style.justifyContent = 'center'
@@ -147,8 +152,29 @@
         document.getElementById('ties').innerHTML = `Draws: ${ties}`
         document.getElementById('totalMatches').innerHTML = `Total Matches: ${totalMatches}`
       }
-
-
           }
+
+
+
+          let Reset = () => {
+      document.getElementById('reset').addEventListener('click', () => {
+      totalMatches = 0
+      playerWINS = 0
+      computerWINS = 0
+      ties = 0
+      document.getElementById('ties').innerHTML = `Draws: ${ties}`
+      document.getElementById('playerWINS').innerHTML = `Player Wins: ${playerWINS}`
+      document.getElementById('totalMatches').innerHTML = `Total Matches: ${totalMatches}`
+     document.getElementById('computerWINS').innerHTML = `Computer Wins: ${computerWINS}`
+      console.log(`totalMatches: ${totalMatches}, playerWINS: ${playerWINS}, computerWINS: ${computerWINS}, Draws: ${ties}`)
+
+    })
+  }
+
+  console.log(`totalMatches: ${totalMatches}, playerWINS: ${playerWINS}, computerWINS: ${computerWINS}, Draws: ${ties}`)
+
+
+
+
   </script>
 </html>
