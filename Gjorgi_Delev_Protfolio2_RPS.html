@@ -10,12 +10,12 @@
   <body>
     <header>
       <div>
-        <button onclick="ComputerChoice()" id="rock">Rock</button>
-        <button onclick="ComputerChoice()" id="scissors">Scissors</button>
-        <button onclick="ComputerChoice()" id="paper">Paper</button>
+        <button onclick="startGame()" id="rock">Rock</button>
+        <button onclick="startGame()" id="scissors">Scissors</button>
+        <button onclick="startGame()" id="paper">Paper</button>
       </div>
     </header>
-    <main>
+    <main onchange="move()">
       <div class="player">
         <p>Player:</p>
         <img id="rspPlayerIMG" src="/media/rsp.png" alt="" />
@@ -32,142 +32,159 @@
         <p id="computerWINS">Computer Wins:</p>
         <p id="totalMatches">Total Score:</p>
       </div>
-      <div>
-
-      </div>
+      <div></div>
     </div>
 
     <script>
-      // Rock takes (>) Scissors
-      // Scissors takes (>) Paper
-      // Paper takes (>) Rock
-
-      let player = "";
-      let playerWINS = 0;
-      let computerWINS = 0;
-      let ties = 0;
-      let totalGamesPlayed = 0;
-    //   totalGamesPlayed += playerWINS + computerWINS + ties
-
-      // Binary Rules of the game
-      let rsp = {
-        rock: 0,
-        scissors: 1,
-        paper: 2,
-      };
-
-      // Computer Playing
-      let ComputerChoice = () => {
-        //   Making the game binary
-        let choosedNumber = Math.floor(Math.random() * 3);
-        let choosedItem = ["rock", "scissors", "paper"];
-
-        document.getElementById("rspComputerIMG").src =
-          "./media/" + choosedItem[choosedNumber] + ".png";
-        return choosedItem[choosedNumber];
-      };
-
-      const Play = () => {
-        //  Getting a win, lose or a tie
-        // Rock:
-        document.getElementById(
-          "totalMatches"
-        ).textContent = `Total Score: ${totalGamesPlayed}`;
-
-        totalGamesPlayed++
-        if (player == "rock" && ComputerChoice() == "rock") {
-          console.log(ties);
-          ties += 1;
-          document.getElementById("ties").innerHTML = `Draws: ${ties}`;
-        }
+      let startGame = () => {
+        let playerRock = document.getElementById('rock')
+        let playerScissors = document.getElementById('scissors')
+        let playerPaper = document.getElementById('paper')
+      }
 
 
-        else if (player == "rock" && ComputerChoice() == "scissors") {
-          console.log("Winner: Player");
-          playerWINS += 1;
-          document.getElementById(
-            "playerWINS"
-          ).innerHTML = `Player Wins: ${playerWINS}`;
-        }
 
-        else if (player == "rock" && ComputerChoice() == "paper") {
-          console.log("Winner: Computer");
-          computerWINS += 1;
-          document.getElementById(
-            "computerWINS"
-          ).innerHTML = `Computer Wins: ${computerWINS}`;
-        }
 
-        // Scissors
-        else if (player == "scissors" && ComputerChoice() == "rock") {
-          console.log("Winner: Computer");
-          computerWINS += 1;
-          document.getElementById(
-            "computerWINS"
-          ).innerHTML = `Computer Wins: ${computerWINS}`;
-        }
 
-        else if (player == "scissors" && ComputerChoice() == "scissors") {
-          console.log("TIE!");
-          ties += 1;
-          document.getElementById("ties").innerHTML = `Draws: ${ties}`;
-        }
+      document.getElementById("rspPlayerIMG").setAttribute("draggable", false);
+      document
+        .getElementById("rspComputerIMG")
+        .setAttribute("draggable", false);
+      // // Rock takes (>) Scissors
+      // // Scissors takes (>) Paper
+      // // Paper takes (>) Rock
 
-        else if (player == "scissors" && ComputerChoice() == "paper") {
-          console.log("Winner: Player");
-          playerWINS += 1;
-          document.getElementById(
-            "playerWINS"
-          ).innerHTML = `Player Wins: ${playerWINS}`;
-        }
+      // let player = "";
 
-        // Paper
-        else if (player == "paper" && ComputerChoice() == "rock") {
-          console.log("Winner: Player");
-          playerWINS += 1;
-          document.getElementById(
-            "playerWINS"
-          ).innerHTML = `Player Wins: ${playerWINS}`;
-        }
+      // let playerWINS = 0;
+      // let computerWINS = 0;
+      // let ties = 0;
 
-        else if (player == "paper" && ComputerChoice() == "scissors") {
-          console.log("Winner: Computer");
+      // let totalGamesPlayed = 1;
+      // //   totalGamesPlayed += playerWINS + computerWINS + ties
 
-          computerWINS += 1;
-          document.getElementById(
-            "computerWINS"
-          ).innerHTML = `Computer Wins: ${computerWINS}`;
-        }
+      // // Binary Rules of the game
+      // let rsp = {
+      //   rock: 0,
+      //   scissors: 1,
+      //   paper: 2,
+      // };
 
-        else if (player == "paper" && ComputerChoice() == "paper") {
-          console.log("TIE!");
-          ties += 1;
-          document.getElementById("ties").innerHTML = `Draws: ${ties}`;
-        }
-      };
+      // // Computer Playing
+      // let ComputerChoice = () => {
+      //   //   Making the game binary
+      //   let choosedNumber = Math.floor(Math.random() * 3);
+      //   let choosedItem = ["rock", "scissors", "paper"];
+      //   let r_s_p = choosedItem[choosedNumber];
 
-      // Player on Click Change Picture
-      let rock = document
-        .getElementById("rock")
-        .addEventListener("click", () => {
-          document.getElementById("rspPlayerIMG").src = "/media/rock.png";
-          player = "rock";
-          Play();
-        });
-      let scissors = document
-        .getElementById("scissors")
-        .addEventListener("click", () => {
-          document.getElementById("rspPlayerIMG").src = "/media/scissors.png";
-          player = "scissors";
-          Play();
-        });
-      let paper = document
-        .getElementById("paper")
-        .addEventListener("click", () => {
-          document.getElementById("rspPlayerIMG").src = "/media/paper.png";
-          player = "paper";
-          Play();
-        });
+      //   document.getElementById("rspComputerIMG").src =
+      //     "./media/" + r_s_p + ".png";
+      //   return r_s_p;
+      // };
+
+      // //  Getting a win, lose or a tie
+      // const Play = () => {
+
+      //   document.getElementById(
+      //     "totalMatches"
+      //   ).textContent = `Total Score: ${totalGamesPlayed}`;
+
+      //   document.querySelector("main").style.justifyContent = "center";
+
+
+      //   // Rock:
+
+      //   if (player === "rock" && ComputerChoice() === "rock") {
+      //     ties++;
+      //     console.log("TIE!", ties);
+      //     document.getElementById("ties").innerHTML = `Draws: ${ties}`;
+      //   }
+      //   else if (player === "rock" && ComputerChoice() === "scissors") {
+      //     playerWINS++;
+      //     console.log("Winner: Player", playerWINS);
+      //     document.getElementById(
+      //       "playerWINS"
+      //     ).innerHTML = `Player Wins: ${playerWINS}`;
+      //   }
+      //    else if (player === "rock" && ComputerChoice() === "paper") {
+      //     computerWINS++;
+      //     console.log("Winner: Computer", computerWINS);
+      //     document.getElementById(
+      //       "computerWINS"
+      //     ).innerHTML = `Computer Wins: ${computerWINS}`;
+      //   }
+
+      //   // Scissors
+      //   else if (player === "scissors" && ComputerChoice() === "rock") {
+      //     computerWINS++;
+      //     console.log("Winner: Computer", computerWINS);
+      //     document.getElementById(
+      //       "computerWINS"
+      //     ).innerHTML = `Computer Wins: ${computerWINS}`;
+      //   }
+      //   else if (player === "scissors" && ComputerChoice() === "scissors") {
+      //     ties++;
+      //     console.log("TIE!", ties);
+      //     document.getElementById("ties").innerHTML = `Draws: ${ties}`;
+      //   }
+      //   else if (player === "scissors" && ComputerChoice() === "paper") {
+      //     playerWINS++;
+      //     console.log("Winner: Player", playerWINS);
+      //     document.getElementById(
+      //       "playerWINS"
+      //     ).innerHTML = `Player Wins: ${playerWINS}`;
+      //   }
+
+      //   // Paper
+      //   else if (player === "paper" && ComputerChoice() === "rock") {
+      //     console.log("Winner: Player");
+      //     playerWINS++;
+      //     console.log('Wineer: PLayer' + playerWINS)
+      //     document.getElementById(
+      //       "playerWINS"
+      //     ).innerHTML = `Player Wins: ${playerWINS}`;
+      //   }
+      //   else if (player === "paper" && ComputerChoice() === "scissors") {
+      //     console.log("Winner: Computer");
+      //     computerWINS++;
+      //     console.log('Computer Wins: ' + computerWINS)
+      //     document.getElementById(
+      //       "computerWINS"
+      //     ).innerHTML = `Computer Wins: ${computerWINS}`;
+      //   }
+      //   else if (player === "paper" && ComputerChoice() === "paper") {
+      //     ties++;
+      //     console.log('TIE!', ties)
+      //     document.getElementById("ties").innerHTML = `Draws: ${ties}`;
+      //   }
+      //   totalGamesPlayed++
+      // };
+
+      // // Player on Click Change Picture
+      // let rock = document
+      //   .getElementById("rock")
+      //   .addEventListener("click", () => {
+      //     player = "rock";
+      //     Play();
+      //     console.log(Play())
+      //     document.getElementById("rspPlayerIMG").src = "/media/rock.png";
+
+
+      //   });
+      // let scissors = document
+      //   .getElementById("scissors")
+      //   .addEventListener("click", () => {
+      //     player = "scissors";
+      //     Play();
+      //     document.getElementById("rspPlayerIMG").src = "/media/scissors.png";
+      //   });
+      // let paper = document
+      //   .getElementById("paper")
+      //   .addEventListener("click", () => {
+      //     player = "paper";
+      //     Play();
+      //     document.getElementById("rspPlayerIMG").src = "/media/paper.png";
+      //   });
     </script>
   </body>
 </html>
