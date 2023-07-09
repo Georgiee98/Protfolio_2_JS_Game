@@ -1,18 +1,18 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RPS Game</title>
+    <title>Document</title>
     <link rel="stylesheet" href="Gjorgi_Delev_Protfolio2_RPS_Style.css" />
   </head>
   <body>
     <header>
       <div>
-        <button onclick="startGame()" id="rock">Rock</button>
-        <button onclick="startGame()" id="scissors">Scissors</button>
-        <button onclick="startGame()" id="paper">Paper</button>
+        <button onclick="Rock()" id="rock">Rock</button>
+        <button onclick="Scissors()" id="scissors">Scissors</button>
+        <button onclick="Paper()" id="paper">Paper</button>
       </div>
     </header>
     <main onchange="move()">
@@ -34,218 +34,121 @@
       </div>
       <div></div>
     </div>
-
-    <script>
-      document.getElementById("rspPlayerIMG").setAttribute("draggable", false);
-      document
-        .getElementById("rspComputerIMG")
-        .setAttribute("draggable", false);
-
-      let startGame = () => {
-
-        let computerRSP = Math.floor(Math.random() * 3);
-        let imgRSP = ['rock','paper','scissors']
-        let computerChoosenRSP_IMG = imgRSP[computerRSP]
-        document.getElementById("rspComputerIMG").src = "./media/" + computerChoosenRSP_IMG + ".png";
-
-
-        let tie = 0;
-        let player = 0;
-        let computer = 0;
-
-        let playerRock = document
-          .getElementById("rock")
-          .addEventListener("click", () => {
-            document.getElementById("rspPlayerIMG").src = "/media/rock.png";
-            let playerRSP = 0
-            if (playerRSP === computerRSP) {
-              tie++;
-              document.getElementById("ties").innerHTML = "Draws: " + tie;
-
-              console.log("Tie: " + tie);
-            } else if (playerRSP === 0 && computerRSP === 1) {
-              player++;
-              console.log("Winner: Player: " + player);
-            } else if (playerRSP === 0 && computerRSP === 2) {
-              computer++;
-              console.log("Winner: Computer: ", computer);
-            }
-          });
-        let playerScissors = document
-          .getElementById("scissors")
-          .addEventListener("click", () => {
-            document.getElementById("rspPlayerIMG").src = "/media/scissors.png";
-            let playerRSP = 1;
-
-            if (playerRSP === computerRSP) {
-              tie++;
-              document.getElementById("ties").innerHTML = "Draws: " + tie;
-
-              console.log("Tie: " + tie);
-            } else if (playerRSP === 1 && computerRSP === 0) {
-              computer++;
-              console.log("Winner: Computer: ", computer);
-            } else if (playerRSP === 1 && computerRSP === 2) {
-              player++;
-              console.log("Winner: Player: " + player);
-            }
-          });
-        let playerPaper = document
-          .getElementById("paper")
-          .addEventListener("click", () => {
-            document.getElementById("rspPlayerIMG").src = "/media/paper.png";
-            let playerRSP = 2;
-
-            if (playerRSP === computerRSP) {
-              tie++;
-              document.getElementById("ties").innerHTML = "Draws: " + tie;
-
-              console.log("Tie: " + tie);
-            } else if (playerRSP === 2 && computerRSP === 0) {
-              player++;
-              console.log("Winner: Player: " + player);
-            } else if (playerRSP === 2 && computerRSP === 1) {
-              computer++;
-              console.log("Winner: Computer: ");
-            }
-          });
-
-        // case playerPaper === 2 && computerRSP === 0:
-      };
-
-      // // Rock takes (>) Scissors
-      // // Scissors takes (>) Paper
-      // // Paper takes (>) Rock
-
-      // let player = "";
-
-      // let playerWINS = 0;
-      // let computerWINS = 0;
-      // let ties = 0;
-
-      // let totalGamesPlayed = 1;
-      // //   totalGamesPlayed += playerWINS + computerWINS + ties
-
-      // // Binary Rules of the game
-      // let rsp = {
-      //   rock: 0,
-      //   scissors: 1,
-      //   paper: 2,
-      // };
-
-      // // Computer Playing
-      // let ComputerChoice = () => {
-      //   //   Making the game binary
-      //   let choosedNumber = Math.floor(Math.random() * 3);
-      //   let choosedItem = ["rock", "scissors", "paper"];
-      //   let r_s_p = choosedItem[choosedNumber];
-
-      //   document.getElementById("rspComputerIMG").src =
-      //     "./media/" + r_s_p + ".png";
-      //   return r_s_p;
-      // };
-
-      // //  Getting a win, lose or a tie
-      // const Play = () => {
-
-      //   document.getElementById(
-      //     "totalMatches"
-      //   ).textContent = `Total Score: ${totalGamesPlayed}`;
-
-      //   document.querySelector("main").style.justifyContent = "center";
-
-      //   // Rock:
-
-      //   if (player === "rock" && ComputerChoice() === "rock") {
-      //     ties++;
-      //     console.log("TIE!", ties);
-      //     document.getElementById("ties").innerHTML = `Draws: ${ties}`;
-      //   }
-      //   else if (player === "rock" && ComputerChoice() === "scissors") {
-      //     playerWINS++;
-      //     console.log("Winner: Player", playerWINS);
-      //     document.getElementById(
-      //       "playerWINS"
-      //     ).innerHTML = `Player Wins: ${playerWINS}`;
-      //   }
-      //    else if (player === "rock" && ComputerChoice() === "paper") {
-      //     computerWINS++;
-      //     console.log("Winner: Computer", computerWINS);
-      //     document.getElementById(
-      //       "computerWINS"
-      //     ).innerHTML = `Computer Wins: ${computerWINS}`;
-      //   }
-
-      //   // Scissors
-      //   else if (player === "scissors" && ComputerChoice() === "rock") {
-      //     computerWINS++;
-      //     console.log("Winner: Computer", computerWINS);
-      //     document.getElementById(
-      //       "computerWINS"
-      //     ).innerHTML = `Computer Wins: ${computerWINS}`;
-      //   }
-      //   else if (player === "scissors" && ComputerChoice() === "scissors") {
-      //     ties++;
-      //     console.log("TIE!", ties);
-      //     document.getElementById("ties").innerHTML = `Draws: ${ties}`;
-      //   }
-      //   else if (player === "scissors" && ComputerChoice() === "paper") {
-      //     playerWINS++;
-      //     console.log("Winner: Player", playerWINS);
-      //     document.getElementById(
-      //       "playerWINS"
-      //     ).innerHTML = `Player Wins: ${playerWINS}`;
-      //   }
-
-      //   // Paper
-      //   else if (player === "paper" && ComputerChoice() === "rock") {
-      //     console.log("Winner: Player");
-      //     playerWINS++;
-      //     console.log('Wineer: PLayer' + playerWINS)
-      //     document.getElementById(
-      //       "playerWINS"
-      //     ).innerHTML = `Player Wins: ${playerWINS}`;
-      //   }
-      //   else if (player === "paper" && ComputerChoice() === "scissors") {
-      //     console.log("Winner: Computer");
-      //     computerWINS++;
-      //     console.log('Computer Wins: ' + computerWINS)
-      //     document.getElementById(
-      //       "computerWINS"
-      //     ).innerHTML = `Computer Wins: ${computerWINS}`;
-      //   }
-      //   else if (player === "paper" && ComputerChoice() === "paper") {
-      //     ties++;
-      //     console.log('TIE!', ties)
-      //     document.getElementById("ties").innerHTML = `Draws: ${ties}`;
-      //   }
-      //   totalGamesPlayed++
-      // };
-
-      // // Player on Click Change Picture
-      // let rock = document
-      //   .getElementById("rock")
-      //   .addEventListener("click", () => {
-      //     player = "rock";
-      //     Play();
-      //     console.log(Play())
-      //     document.getElementById("rspPlayerIMG").src = "/media/rock.png";
-
-      //   });
-      // let scissors = document
-      //   .getElementById("scissors")
-      //   .addEventListener("click", () => {
-      //     player = "scissors";
-      //     Play();
-      //     document.getElementById("rspPlayerIMG").src = "/media/scissors.png";
-      //   });
-      // let paper = document
-      //   .getElementById("paper")
-      //   .addEventListener("click", () => {
-      //     player = "paper";
-      //     Play();
-      //     document.getElementById("rspPlayerIMG").src = "/media/paper.png";
-      //   });
-    </script>
   </body>
-</html> -->
+  <script>
+            document.getElementById("rspPlayerIMG").setAttribute("draggable", false);
+          document
+            .getElementById("rspComputerIMG")
+            .setAttribute("draggable", false);
+
+     function move() {
+      document.querySelector('main').style.justifyContent = 'center'
+     }
+
+
+     let totalMatches = 0
+     let playerWINS = 0
+     let computerWINS = 0
+     let ties = 0
+
+
+
+     let Rock = () => {
+      console.log("ROCK PRESSED")
+      totalMatches++
+      rock++
+      // Computer Choice
+      let computerRSP = Math.floor(Math.random() * 3);
+      let imgRSP = ['rock','scissors','paper']
+
+      let computerChoosenRSP_IMG = imgRSP[computerRSP]
+      document.getElementById("rspPlayerIMG").src = "./media/" + 'rock' + ".png";
+      document.getElementById("rspComputerIMG").src = "./media/" + computerChoosenRSP_IMG + ".png";
+
+      if (computerRSP === 0) {
+        ties++
+        document.getElementById('ties').innerHTML = `Draws: ${ties}`
+        document.getElementById('totalMatches').innerHTML = `Total Matches: ${totalMatches}`
+      }
+
+      else if (computerRSP === 1) {
+        playerWINS++;
+        document.getElementById('playerWINS').innerHTML = `Player Wins: ${playerWINS}`
+        document.getElementById('totalMatches').innerHTML = `Total Matches: ${totalMatches}`
+      }
+
+      else if (computerRSP === 2) {
+        computerWINS++;
+        document.getElementById('computerWINS').innerHTML = `Computer Wins: ${computerWINS}`
+        document.getElementById('totalMatches').innerHTML = `Total Matches: ${totalMatches}`
+        }
+
+    }
+    let Scissors = () => {
+      console.log("Scissors Pressed")
+      totalMatches++
+
+      // Computer Choice
+      let computerRSP = Math.floor(Math.random() * 3);
+      let imgRSP = ['rock','scissors','paper']
+
+      let computerChoosenRSP_IMG = imgRSP[computerRSP]
+      document.getElementById("rspPlayerIMG").src = "./media/" + 'scissors' + ".png";
+      document.getElementById("rspComputerIMG").src = "./media/" + computerChoosenRSP_IMG + ".png";
+
+      if (computerRSP === 0) {
+        computerWINS++;
+        document.getElementById('computerWINS').innerHTML = `Computer Wins: ${computerWINS}`
+        document.getElementById('totalMatches').innerHTML = `Total Matches: ${totalMatches}`
+        }
+
+      else if (computerRSP === 1) {
+        ties++
+        document.getElementById('ties').innerHTML = `Draws: ${ties}`
+        document.getElementById('totalMatches').innerHTML = `Total Matches: ${totalMatches}`
+      }
+
+        else  if (computerRSP === 2) {
+        playerWINS++;
+        document.getElementById('playerWINS').innerHTML = `Player Wins: ${playerWINS}`
+        document.getElementById('totalMatches').innerHTML = `Total Matches: ${totalMatches}`
+      }
+
+
+    }
+
+    let Paper = () => {
+      console.log("Paper Pressed")
+      totalMatches++
+
+
+      // Computer Choice
+      let computerRSP = Math.floor(Math.random() * 3);
+      let imgRSP = ['rock','scissors','paper']
+
+      let computerChoosenRSP_IMG = imgRSP[computerRSP]
+      document.getElementById("rspPlayerIMG").src = "./media/" + 'paper' + ".png";
+      document.getElementById("rspComputerIMG").src = "./media/" + computerChoosenRSP_IMG + ".png";
+
+
+      if (computerRSP === 0) {
+        playerWINS++;
+        document.getElementById('playerWINS').innerHTML = `Player Wins: ${playerWINS}`
+        document.getElementById('totalMatches').innerHTML = `Total Matches: ${totalMatches}`
+      }
+      else  if (computerRSP === 1) {
+        computerWINS++;
+        document.getElementById('computerWINS').innerHTML = `Computer Wins: ${computerWINS}`
+        document.getElementById('totalMatches').innerHTML = `Total Matches: ${totalMatches}`
+        }
+
+      else if (computerRSP === 2) {
+        ties++
+        document.getElementById('ties').innerHTML = `Draws: ${ties}`
+        document.getElementById('totalMatches').innerHTML = `Total Matches: ${totalMatches}`
+      }
+
+
+          }
+  </script>
+</html>
