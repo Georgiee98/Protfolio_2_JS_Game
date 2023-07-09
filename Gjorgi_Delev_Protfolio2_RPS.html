@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -42,15 +42,75 @@
         .setAttribute("draggable", false);
 
       let startGame = () => {
-        let playerRock = document.getElementById("rock");
-        let playerScissors = document.getElementById("scissors");
-        let playerPaper = document.getElementById("paper");
+
+        let computerRSP = Math.floor(Math.random() * 3);
+        let imgRSP = ['rock','paper','scissors']
+        let computerChoosenRSP_IMG = imgRSP[computerRSP]
+        document.getElementById("rspComputerIMG").src = "./media/" + computerChoosenRSP_IMG + ".png";
 
 
-        let choosedNumber = Math.floor(Math.random() * 3);
-        let choosedItem = ["rock", "scissors", "paper"];
-        let rsp = choosedItem[choosedNumber];
-        console.log(playerRock, playerScissors, playerPaper, rsp)
+        let tie = 0;
+        let player = 0;
+        let computer = 0;
+
+        let playerRock = document
+          .getElementById("rock")
+          .addEventListener("click", () => {
+            document.getElementById("rspPlayerIMG").src = "/media/rock.png";
+            let playerRSP = 0
+            if (playerRSP === computerRSP) {
+              tie++;
+              document.getElementById("ties").innerHTML = "Draws: " + tie;
+
+              console.log("Tie: " + tie);
+            } else if (playerRSP === 0 && computerRSP === 1) {
+              player++;
+              console.log("Winner: Player: " + player);
+            } else if (playerRSP === 0 && computerRSP === 2) {
+              computer++;
+              console.log("Winner: Computer: ", computer);
+            }
+          });
+        let playerScissors = document
+          .getElementById("scissors")
+          .addEventListener("click", () => {
+            document.getElementById("rspPlayerIMG").src = "/media/scissors.png";
+            let playerRSP = 1;
+
+            if (playerRSP === computerRSP) {
+              tie++;
+              document.getElementById("ties").innerHTML = "Draws: " + tie;
+
+              console.log("Tie: " + tie);
+            } else if (playerRSP === 1 && computerRSP === 0) {
+              computer++;
+              console.log("Winner: Computer: ", computer);
+            } else if (playerRSP === 1 && computerRSP === 2) {
+              player++;
+              console.log("Winner: Player: " + player);
+            }
+          });
+        let playerPaper = document
+          .getElementById("paper")
+          .addEventListener("click", () => {
+            document.getElementById("rspPlayerIMG").src = "/media/paper.png";
+            let playerRSP = 2;
+
+            if (playerRSP === computerRSP) {
+              tie++;
+              document.getElementById("ties").innerHTML = "Draws: " + tie;
+
+              console.log("Tie: " + tie);
+            } else if (playerRSP === 2 && computerRSP === 0) {
+              player++;
+              console.log("Winner: Player: " + player);
+            } else if (playerRSP === 2 && computerRSP === 1) {
+              computer++;
+              console.log("Winner: Computer: ");
+            }
+          });
+
+        // case playerPaper === 2 && computerRSP === 0:
       };
 
       // // Rock takes (>) Scissors
@@ -188,4 +248,4 @@
       //   });
     </script>
   </body>
-</html>
+</html> -->
