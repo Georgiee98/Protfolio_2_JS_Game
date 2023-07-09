@@ -5,5 +5,13 @@
 -   HTML
 -   CSS
 
-# A simple Rock Scissors Paper Game that allows one player to choice between 'Rock Scissors or Papers'
-# and the computer will randomly choose an option. The winner of each round is determined by a tie, win or a lost.
+# Rules:
+-   Rock beats Scissors
+-   Scissors beats Paper
+-   Paper beats Scissors
+
+
+* Each player can choose between 3 options of Rock, Scissors or Paper
+* When choosed the computer chooses as well
+* Below is written who has won, or if it was a draw + total matches played
+* there is a reset button to reset the Matches.
