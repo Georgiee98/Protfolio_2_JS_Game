@@ -16,7 +16,7 @@
         <button onclick="Paper()" id="paper">Paper</button>
       </div>
     </header>
-    <main onchange="move()">
+    <main">
       <div class="player">
         <p>Player:</p>
         <img id="rspPlayerIMG" src="/media/rsp.png" alt="" />
@@ -40,36 +40,39 @@
 
 
 
+// Makin pictures undraggable
+    document.getElementById("rspPlayerIMG").setAttribute("draggable", false);
+    document
+      .getElementById("rspComputerIMG")
+      .setAttribute("draggable", false);
 
-      document.getElementById("rspPlayerIMG").setAttribute("draggable", false);
-      document
-        .getElementById("rspComputerIMG")
-        .setAttribute("draggable", false);
-
-     function move() {
-      document.querySelector('main').style.justifyContent = 'center'
-      console.log('center')
-     }
-
-
+// Initializng Dynamical Data
      let totalMatches = 0
      let playerWINS = 0
      let computerWINS = 0
      let ties = 0
 
 
+// Rules:
+// Rock, Scissors, Paper ... Rock
+//   0   >   1     >   2 >    0
+// 0 > 1 Rock(0) > Scissors(1)
+// 1 < 0 Scissors(1) > Paper(2)
+// 2 > 0 Paper > Rock(0)
+
 
      let Rock = () => {
-      console.log("ROCK PRESSED")
       totalMatches++
-      rock++
       // Computer Choice
       let computerRSP = Math.floor(Math.random() * 3);
       let imgRSP = ['rock','scissors','paper']
-
       let computerChoosenRSP_IMG = imgRSP[computerRSP]
+
+      // Player image to change
       document.getElementById("rspPlayerIMG").src = "./media/" + 'rock' + ".png";
+      // Computer image to change
       document.getElementById("rspComputerIMG").src = "./media/" + computerChoosenRSP_IMG + ".png";
+      // Both images to move closer
       document.querySelector('main').style.justifyContent = 'center'
 
       if (computerRSP === 0) {
