@@ -145,8 +145,8 @@
       document.getElementById('totalMatches').innerHTML = `Total Matches: ${totalMatches}`
       document.getElementById('computerWINS').innerHTML = `Computer Wins: ${computerWINS}`
 
-      document.getElementById('rspPlayerIMG').src = "/media/rsp.png"
-      document.getElementById('rspComputerIMG').src = "/media/rsp.png"
+      document.getElementById('rspPlayerIMG').src = "media/rsp.png"
+      document.getElementById('rspComputerIMG').src = "media/rsp.png"
 
   }
   document.getElementById('reset').addEventListener('click', Reset);
