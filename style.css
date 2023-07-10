@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+body {
+  font-family: "Fjalla One";
+}
+header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+header div {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  padding: 20px;
+}
+main {
+  display: flex;
+  justify-content: space-around;
+}
+
+.player {
+  display: flex;
+  flex-direction: column;
+}
+.player img {
+  object-fit: contain;
+  transform: scaleX(1);
+}
+.computer {
+  display: flex;
+  flex-direction: column;
+}
+
+.computer img {
+  transform: scaleX(-1);
+  object-fit: contain;
+
+}
+.judge {
+  display: flex;
+  justify-content: space-around;
+  padding: 25px;
+}
+
+
+
+
+/* Media queries for different devices */
+
+
+/* Minimalistic */
+@media (max-width: 500px) {
+  header div {
+    width: 100%;
+  }
+
+  .player,
+  .computer {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .player img,
+  .computer img {
+    max-width: 100%;
+    height: auto;
+  }
+  .judge {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+/* Phones */
+@media (max-width: 767px) {
+  header div {
+    width: 110%;
+  }
+
+  .player,
+  .computer {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .player img,
+  .computer img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* Tablets and above */
+@media (min-width: 768px) {
+  header div {
+    width: 50%;
+  }
+
+  .player,
+  .computer {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .player img,
+  .computer img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+
+h2 {
+  text-align: center;
+
+}
+.chooseWeapon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+section   {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#winnerIS {
+  height: 20px;
+}

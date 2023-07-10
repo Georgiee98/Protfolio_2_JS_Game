@@ -27,9 +27,9 @@
       let computerChoosenRSP_IMG = imgRSP[computerRSP]
 
       // Player image to change
-      document.getElementById("rspPlayerIMG").src = "./media/" + 'rock' + ".png";
+      document.getElementById("rspPlayerIMG").src = "media/" + 'rock' + ".png";
       // Computer image to change
-      document.getElementById("rspComputerIMG").src = "./media/" + computerChoosenRSP_IMG + ".png";
+      document.getElementById("rspComputerIMG").src = "media/" + computerChoosenRSP_IMG + ".png";
       // Both images to move closer
       document.querySelector('main').style.justifyContent = 'center'
 
@@ -37,19 +37,26 @@
         ties++
         document.getElementById('ties').innerHTML = `Draws: ${ties}`
         document.getElementById('totalMatches').innerHTML = `Total Matches: ${totalMatches}`
+        document.getElementById('winnerIS').innerHTML = 'Draw'
+
       }
 
       else if (computerRSP === 1) {
         playerWINS++;
         document.getElementById('playerWINS').innerHTML = `Player Wins: ${playerWINS}`
+        document.getElementById('winnerIS').innerHTML = 'Winner: Player'
+
         document.getElementById('totalMatches').innerHTML = `Total Matches: ${totalMatches}`
       }
 
       else if (computerRSP === 2) {
         computerWINS++;
         document.getElementById('computerWINS').innerHTML = `Computer Wins: ${computerWINS}`
+        document.getElementById('winnerIS').innerHTML = 'Winner: Computer'
+
         document.getElementById('totalMatches').innerHTML = `Total Matches: ${totalMatches}`
         }
+
 
     }
     let Scissors = () => {
@@ -61,13 +68,15 @@
       let imgRSP = ['rock','scissors','paper']
 
       let computerChoosenRSP_IMG = imgRSP[computerRSP]
-      document.getElementById("rspPlayerIMG").src = "./media/" + 'scissors' + ".png";
-      document.getElementById("rspComputerIMG").src = "./media/" + computerChoosenRSP_IMG + ".png";
+      document.getElementById("rspPlayerIMG").src = "media/" + 'scissors' + ".png";
+      document.getElementById("rspComputerIMG").src = "media/" + computerChoosenRSP_IMG + ".png";
       document.querySelector('main').style.justifyContent = 'center'
 
       if (computerRSP === 0) {
         computerWINS++;
         document.getElementById('computerWINS').innerHTML = `Computer Wins: ${computerWINS}`
+        document.getElementById('winnerIS').innerHTML = 'Winner: Computer'
+
         document.getElementById('totalMatches').innerHTML = `Total Matches: ${totalMatches}`
         }
 
@@ -75,11 +84,13 @@
         ties++
         document.getElementById('ties').innerHTML = `Draws: ${ties}`
         document.getElementById('totalMatches').innerHTML = `Total Matches: ${totalMatches}`
+        document.getElementById('winnerIS').innerHTML = 'Draw'
       }
 
         else  if (computerRSP === 2) {
         playerWINS++;
         document.getElementById('playerWINS').innerHTML = `Player Wins: ${playerWINS}`
+        document.getElementById('winnerIS').innerHTML = 'Winner: Player'
         document.getElementById('totalMatches').innerHTML = `Total Matches: ${totalMatches}`
       }
 
@@ -96,25 +107,28 @@
       let imgRSP = ['rock','scissors','paper']
 
       let computerChoosenRSP_IMG = imgRSP[computerRSP]
-      document.getElementById("rspPlayerIMG").src = "./media/" + 'paper' + ".png";
-      document.getElementById("rspComputerIMG").src = "./media/" + computerChoosenRSP_IMG + ".png";
+      document.getElementById("rspPlayerIMG").src = "media/" + 'paper' + ".png";
+      document.getElementById("rspComputerIMG").src = "media/" + computerChoosenRSP_IMG + ".png";
       document.querySelector('main').style.justifyContent = 'center'
 
 
       if (computerRSP === 0) {
         playerWINS++;
         document.getElementById('playerWINS').innerHTML = `Player Wins: ${playerWINS}`
+        document.getElementById('winnerIS').innerHTML = 'Winner: Player'
         document.getElementById('totalMatches').innerHTML = `Total Matches: ${totalMatches}`
       }
       else  if (computerRSP === 1) {
         computerWINS++;
         document.getElementById('computerWINS').innerHTML = `Computer Wins: ${computerWINS}`
+        document.getElementById('winnerIS').innerHTML = 'Winner: Computer'
         document.getElementById('totalMatches').innerHTML = `Total Matches: ${totalMatches}`
         }
 
       else if (computerRSP === 2) {
         ties++
         document.getElementById('ties').innerHTML = `Draws: ${ties}`
+        document.getElementById('winnerIS').innerHTML = 'Draw'
         document.getElementById('totalMatches').innerHTML = `Total Matches: ${totalMatches}`
       }
           }
@@ -130,11 +144,10 @@
       document.getElementById('ties').innerHTML = `Draws: ${ties}`
       document.getElementById('playerWINS').innerHTML = `Player Wins: ${playerWINS}`
       document.getElementById('totalMatches').innerHTML = `Total Matches: ${totalMatches}`
-     document.getElementById('computerWINS').innerHTML = `Computer Wins: ${computerWINS}`
+      document.getElementById('computerWINS').innerHTML = `Computer Wins: ${computerWINS}`
 
-     document.getElementById('rspPlayerIMG').src = "/media/rsp.png"
-     document.getElementById('rspComputerIMG').src = "/media/rsp.png"
-      console.log(`totalMatches: ${totalMatches}, playerWINS: ${playerWINS}, computerWINS: ${computerWINS}, Draws: ${ties}`)
+      document.getElementById('rspPlayerIMG').src = "/media/rsp.png"
+      document.getElementById('rspComputerIMG').src = "/media/rsp.png"
 
     })
   }
