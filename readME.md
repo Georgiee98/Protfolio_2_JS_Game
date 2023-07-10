@@ -4,7 +4,8 @@ ULTIMATE Rock Paper Scissors is a game to help firends, collegues and family mem
 
 Users of this game will learn the rules of Rock Paper Scissors so they can apply it to decision making with others in their lives. This site will be targeted towards adults and childeren alike as a simple app to learn, practice and have fun with.
 
-IMG MOCKUP DEVICE
+![RSP_Game_Device_Mockup1](https://github.com/Georgiee98/Rock-Paper-Scissors-Game-/assets/125307984/b8d56bde-eeb7-4702-a05a-ce32d4568ea9)
+
 
 ##  Features
 <hr>
@@ -14,13 +15,14 @@ IMG MOCKUP DEVICE
     -  Featured at the top of the page, the header shows the game name: ULTIMATE Rock Paper Scissors in a font that is playful and clearly contrasts with the background.
     -  This header clearly tells the user what game they are playing.
 
-  IMG OF ULTIMATE Rock, Paper, Scissors 
+  ![image](https://github.com/Georgiee98/Rock-Paper-Scissors-Game-/assets/125307984/3b2f63e5-9a60-420f-b8bf-0e732ff8e72c)
+
 
 -  **The Game Options
     -  The Game options include a clear instruction and then a choice of options to choose from to play: Rock, Paper, Scissors. These options are interactive buttons that the user can click to make their choice.
     -  This section provides interactive buttons that the user can click to make their choice and play the game.
 
-    IMG of Make a choice and buttons
+    ![image](https://github.com/Georgiee98/Rock-Paper-Scissors-Game-/assets/125307984/e8639883-e105-46b2-81a9-42c9ce058b9a)
 
 -  **The Game Results**
     -  asasa
@@ -30,13 +32,13 @@ IMG MOCKUP DEVICE
     -  The results and score are clear to the user, making the game easy to play, understand who won, and what the score is.
 
 
-  IMG of hands playing
+ ![image](https://github.com/Georgiee98/Rock-Paper-Scissors-Game-/assets/125307984/449027e4-16a8-45c4-98e4-efe7f60b808b)
 
 -  **The Footer**
     -  The footer section shows the rules of Rock paper Scissors.
     -  The footer is valuable to the user because it clearly explains how the game is played
 
-    IMG of Footer
+    ![image](https://github.com/Georgiee98/Rock-Paper-Scissors-Game-/assets/125307984/b05c0cb9-8a58-461b-a77b-b35526f5a441)
 
 -  **Features Left to Implement**
     -  When there is time, i would like to expand:
@@ -50,8 +52,8 @@ IMG MOCKUP DEVICE
 -  I confirmed that the game results are always correct.
 -  I confirmed that the header, instructions, options, results and footer text are all readable and easy to understand.
 -  I confirmed that the colors and fonts chosen are easy to read and accessible by running it trough lighthouse in devtools
-
-    IMG of LightHouse
+-  
+   ![image](https://github.com/Georgiee98/Rock-Paper-Scissors-Game-/assets/125307984/234c695d-f952-4bb5-9e99-de3928cfc328)
 -  I confirmed that this project is responseve, looks good and functinos on all standard screen siing using the devtools device toolbar.
 
 
@@ -75,7 +77,7 @@ No unfixed bugs
     *  From the source section drop-down menum select the Master or Main Branch
     *  Once a branch is selected, the page provided the link to the completed webiste. (it could take a few minutes, just refresh the page)
 
-The live link can be found here -  LINK OF WEBSITE
+The live link can be found here -  [WEBSITE](https://georgiee98.github.io/Rock-Paper-Scissors-Game-/)
 
 ##  Credits
 <hr>
