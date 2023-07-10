@@ -136,7 +136,6 @@
 
 
           let Reset = () => {
-      document.getElementById('reset').addEventListener('click', () => {
       totalMatches = 0
       playerWINS = 0
       computerWINS = 0
@@ -149,8 +148,8 @@
       document.getElementById('rspPlayerIMG').src = "/media/rsp.png"
       document.getElementById('rspComputerIMG').src = "/media/rsp.png"
 
-    })
   }
+  document.getElementById('reset').addEventListener('click', Reset);
 
   console.log(`totalMatches: ${totalMatches}, playerWINS: ${playerWINS}, computerWINS: ${computerWINS}, Draws: ${ties}`)
 
