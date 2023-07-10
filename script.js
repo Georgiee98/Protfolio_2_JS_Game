@@ -144,11 +144,10 @@
       document.getElementById('ties').innerHTML = `Draws: ${ties}`
       document.getElementById('playerWINS').innerHTML = `Player Wins: ${playerWINS}`
       document.getElementById('totalMatches').innerHTML = `Total Matches: ${totalMatches}`
-     document.getElementById('computerWINS').innerHTML = `Computer Wins: ${computerWINS}`
+      document.getElementById('computerWINS').innerHTML = `Computer Wins: ${computerWINS}`
 
-     document.getElementById('rspPlayerIMG').src = "/media/rsp.png"
-     document.getElementById('rspComputerIMG').src = "/media/rsp.png"
-      console.log(`totalMatches: ${totalMatches}, playerWINS: ${playerWINS}, computerWINS: ${computerWINS}, Draws: ${ties}`)
+      document.getElementById('rspPlayerIMG').src = "/media/rsp.png"
+      document.getElementById('rspComputerIMG').src = "/media/rsp.png"
 
     })
   }
