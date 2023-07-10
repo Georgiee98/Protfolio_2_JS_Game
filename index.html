@@ -5,29 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="Gjorgi_Delev_Protfolio2_RPS_Style.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-
+<h2>ULTIMATE Rock Paper and Scissors</h2>
+<div class="chooseWeapon">Make a choice</div>
     <header>
+
       <div class="header-buttons">
         <button onclick="Rock()" id="rock">Rock</button>
-        <button onclick="Scissors()" id="scissors">Scissors</button>
         <button onclick="Paper()" id="paper">Paper</button>
+        <button onclick="Scissors()" id="scissors">Scissors</button>
       </div>
     </header>
+    <section>
+    <p id="winnerIS"></p>
+    </section>
     <main>
       <div class="player">
         <p>Player:</p>
-        <img id="rspPlayerIMG" src="/media/rsp.png" alt="" />
+        <img id="rspPlayerIMG" src="media/rsp.png" alt="" />
       </div>
       <div class="computer">
         <p>Computer:</p>
-        <img id="rspComputerIMG" src="/media/rsp.png" alt="" />
+        <img id="rspComputerIMG" src="media/rsp.png" alt="" />
       </div>
     </main>
     <div>
-      <div class="judge" id="winner">
+      <div class="judge" >
         <p id="playerWINS">Player Wins: 0</p>
         <p id="computerWINS">Computer Wins: 0</p>
         <p id="ties">Draws: 0</p>
